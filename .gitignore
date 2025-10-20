@@ -1,0 +1,10 @@
+.venv/
+notes
+.idea/
+ __pycache__/
+ db.sqlite3
+ fruit.txt
+ exercise.py
+ contacts.txt
+ commands.py
+

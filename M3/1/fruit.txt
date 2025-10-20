@@ -1,0 +1,4 @@
+Watermelon, 1
+Pineapple, 1
+Fish (How did it get here?!), 7
+Mushrooms (?!), 10
