@@ -37,8 +37,8 @@ class Book:
         return info
 #3
 class Library:
-    def __init__(self, title):
-        self.title = title
+    def __init__(self, name):
+        self.name = name
         self.book_list = []
 
     def list(self):
@@ -50,9 +50,9 @@ class Library:
     def filter(self, title=None, author=None, year=None):
         result = []
         for book in self.book_list:
-            if title and  book.title.lower() != title.lower():
+            if title and (book.title is None or book.title.lower() != title.lower()):
                 continue
-            if author and book.author.lower() != author.lower():
+            if author and (book.author is None or book.author.lower() != author.lower()):
                 continue
             if year and book.year != year:
                 continue
@@ -85,8 +85,14 @@ library.add_book(book_2)
 library.add_book(book_3)
 library.add_book(book_4)
 
+# print(library.name)
+# print(library.list())
 
+# books = library.filter(author='Корней Чуковский', title='От 2 до 5')
+# print(books[0].display())
 
+books = library.filter(author='Дядя Боб')
+Library.as_table(books)
 
 
 
