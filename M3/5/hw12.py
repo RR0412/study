@@ -31,7 +31,6 @@ class BankAccount:
             self._owner = owner
 
 
-
     @property
     def get_balance(self):
         return self.__balance

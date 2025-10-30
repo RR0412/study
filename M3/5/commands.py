@@ -82,12 +82,12 @@ class Parent():
 # print(item.get_private_value())
 # item.call_private_method()
 
-class Child(Parent):
-    def call_private_method(self):
-        self._Parent__private_method()
+# class Child(Parent):
+#     def call_private_method(self):
+#         self._Parent__private_method()
 
-    def get_private_value(self):
-        return self._Parent__private_value
+#     def get_private_value(self):
+#         return self._Parent__private_value
 
 # item = Child()
 # print(item.get_private_value())
