@@ -1,5 +1,5 @@
 .venv/
-notes
+notes.txt
 .idea/
  __pycache__/
  db.sqlite3
@@ -7,4 +7,5 @@ notes
  exercise.py
  contacts.txt
  commands.py
+ M3/7/example*/
 

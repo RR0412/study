@@ -1,0 +1,1 @@
+from application import FirstClass, SecondClass, ThirdClass

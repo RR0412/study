@@ -1,0 +1,2 @@
+class SecondClass():
+    pass
