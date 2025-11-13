@@ -13,6 +13,11 @@ class Application:
         print(hand)
         checker = Checker(hand)
         print(checker.result())
+        again = input('Would you like to play again? y/n')
+        if again == 'y':
+            app.game()
+        else:
+            exit()
         
 app = Application()
 app.game()
