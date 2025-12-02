@@ -1,0 +1,20 @@
+(https://www.python.org/
+dev/peps/pep-0008/)
+
+(https://www.pylint.org)
+
+
+item 3 to remember:
+Things to Remember
+✦ bytes contains sequences of 8-bit values, and str contains
+sequences of Unicode code points.
+✦ Use helper functions to ensure that the inputs you operate on
+are the type of character sequence that you expect (8-bit values,
+UTF-8-encoded strings, Unicode code points, etc).
+✦ bytes and str instances can’t be used together with operators (like
+>, ==, +, and %).
+✦ If you want to read or write binary data to/from a file, always open
+the file using a binary mode (like 'rb' or 'wb').
+✦ If you want to read or write Unicode data to/from a file, be care-
+ful about your system’s default text encoding. Explicitly pass the
+encoding parameter to open if you want to avoid surprises.

@@ -1,0 +1,28 @@
+--1
+-- SELECT
+--     p.product,
+--     DATE(action_date),
+--     a.qty,
+--     a.price * a.qty as total
+-- FROM actions AS a
+-- JOIN products AS p on a.product_id=p.id
+-- WHERE date_part('year', action_date) < 2017 AND category_id=2
+-- ORDER BY qty DESC LIMIT 5;
+
+-- --2
+-- SELECT
+--     a.id,
+--     a.action_date,
+--     p.product,
+--     s.supplier,
+--     a.qty,
+--     a.price
+-- FROM actions as a
+-- JOIN products as p on a.product_id=p.id
+-- JOIN suppliers as s on a.supplier_id=s.id
+-- WHERE date_part('year',action_date)=2016 and date_part('month',action_date)=1
+-- ORDER BY action_date DESC;
+
+
+
+
