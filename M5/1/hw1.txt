@@ -1,0 +1,25 @@
+task 1. 
+
+nslookup kolesa.kz:
+185.143.129.25
+
+nslookup chatgpt.com:
+172.64.155.209
+Error 1003 Direct IP access not not allowed 
+
+ns lookup kino.kz:
+77.220.207.131
+503 Service Unavailable
+
+task 2
+About flask:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+
