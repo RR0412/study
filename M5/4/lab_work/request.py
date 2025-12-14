@@ -1,3 +1,5 @@
+from urllib.parse import parse_qs
+
 class Request:
     def __init__(self,file):
         self.file = file
@@ -6,7 +8,7 @@ class Request:
         self.uri = ''
         self.protocol = ''
         self.headers = {}
-
+        self.body = ''
         self.parse_request_line()
         self.parse_headers()
         self.parse_body()
@@ -21,19 +23,21 @@ class Request:
     def parse_headers(self):
         while True:
             header = self.read_line()
-
             if header == '':
                 break
 
-            header_name,header_value = header.split(': ', 1)
+            header_name,header_value = header.split(': ')
             self.headers[header_name] = header_value
 
     def read_line(self):
         return self.file.readline().decode().strip()
     
     def parse_body(self):
-        if 'Content-Length' in self.headers:
-            content_length = int(self.headers['Content-Length'])
-            self.body = self.file.read(content_length)
-
+        if 'Content-Length' not in self.headers:
+            return
+    
+        content_length = int(self.headers['Content-Length'])
+        body = self.file.read(content_length)
+        self.body = parse_qs(body.decode().strip())
+ 
 
