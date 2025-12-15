@@ -2,7 +2,7 @@ import random
 import socketserver
 from request import Request
 
-ADDRESS = ('localhost',8000)
+ADDRESS = ('localhost',3333)
 SECRET_NUMBERS = [6, 1, 9, 7]
 socketserver.TCPServer.allow_reuse_address = True
 
@@ -39,8 +39,8 @@ class Handler(socketserver.StreamRequestHandler):
         return self.win(bulls,cows)
 
 
-    def check_len(self,list):
-        if len(list) != 4 :
+    def check_len(self,numbers):
+        if len(numbers) != 4 :
             return(
             '<p>Guess 4 numbers.Enter the separated with spaces:</p>'
             '<form method="POST" action="/">' 
@@ -51,8 +51,8 @@ class Handler(socketserver.StreamRequestHandler):
             '<p>Wrong amount of numbers entered. Should be 4!'
         )
 
-    def check_value(self,list):
-        for number in list:
+    def check_value(self,numbers):
+        for number in numbers:
             if number > 9 or number < 1:
                 return(
                 '<p>Guess 4 numbers.Enter the separated with spaces:</p>'
@@ -60,7 +60,7 @@ class Handler(socketserver.StreamRequestHandler):
                 '<input type="text" name="numbers"/>'
                 '<input type="submit" value="Send"/>'
                 '</form>'
-                f'<p>Cows: 0, Bulls: 0 </p>'
+                f'<p>Cows: 0, Bulls: 0</p>'
                 '<p>Wrong value of number. Number must be between 1 and 9.'
             )
 
@@ -80,10 +80,10 @@ class Handler(socketserver.StreamRequestHandler):
         return matches 
     
     def cows(self,matches,bulls):
-        cows = matches - bulls
-        return cows
+        return matches - bulls
 
-                
+
+
 
     def win(self,bulls,cows):
         if bulls == 4:
@@ -96,17 +96,14 @@ class Handler(socketserver.StreamRequestHandler):
             f'<p>Cows: {cows}, Bulls: {bulls}</p>'
             '<p>Congratulation, you won!'
         )
-
-
-        return(
-            '<p>Guess 4 numbers.Enter the separated with spaces:</p>'
+        else:
+            return('<p>Guess 4 numbers.Enter the separated with spaces:</p>'
             '<form method="POST" action="/">' 
             '<input type="text" name="numbers"/>'
             '<input type="submit" value="Send"/>'
             '</form>'
             f'<p>Cows: {cows}, Bulls: {bulls}</p>'
-        )
-
+            )
 
     
     def handle(self):
@@ -123,21 +120,24 @@ class Handler(socketserver.StreamRequestHandler):
             response_body = self.post(request)
         else:
             response_body = '<h1>Wrong method!</h1>'
+        
 
-        response_body_len = str(len(response_body)).encode()
+        body_bytes = response_body.encode('utf-8')
+        content_length = len(body_bytes)
 
-        response = (
+        headers = [
             'HTTP/1.1 200 OK',
             'Content-Type: text/html',
-            f'Content-Length:{response_body_len}',
+            f'Content-Length:{content_length}',
             'Connection: close',
             '',
-            response_body
-        )
+        ]
 
-        response_as_bytes = '\r\n'.join(response).encode()
+        headers_bytes = '\r\n'.join(headers).encode('utf-8') + b'\r\n'
+        self.wfile.write(headers_bytes)
+        self.wfile.write(body_bytes)  
 
-        self.wfile.write(response_as_bytes)
+
 
     
 with socketserver.ThreadingTCPServer(ADDRESS, Handler) as server:
