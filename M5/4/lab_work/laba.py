@@ -53,7 +53,7 @@ class Handler(socketserver.StreamRequestHandler):
 
     def check_value(self,numbers):
         for number in numbers:
-            if number > 9 or number < 1:
+            if number > 9 or number < 1 :
                 return(
                 '<p>Guess 4 numbers.Enter the separated with spaces:</p>'
                 '<form method="POST" action="/">' 
@@ -63,6 +63,7 @@ class Handler(socketserver.StreamRequestHandler):
                 f'<p>Cows: 0, Bulls: 0</p>'
                 '<p>Wrong value of number. Number must be between 1 and 9.'
             )
+
 
     def bulls(self,numbers):
         bulls = 0
@@ -123,14 +124,13 @@ class Handler(socketserver.StreamRequestHandler):
         
 
         body_bytes = response_body.encode('utf-8')
-        content_length = len(body_bytes)
-
+        
         headers = [
             'HTTP/1.1 200 OK',
             'Content-Type: text/html',
-            f'Content-Length:{content_length}',
+            f'Content-Length:{len(body_bytes)}',
             'Connection: close',
-            '',
+            ''
         ]
 
         headers_bytes = '\r\n'.join(headers).encode('utf-8') + b'\r\n'
