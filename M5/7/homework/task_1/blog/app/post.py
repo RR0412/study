@@ -51,12 +51,6 @@ class PostController(Controller):
         print("Request body:", self.request.body)
         print("New post:", post)
 
-
-        # body = '<h1>I will create new post very soon!</h1>'
-        # self.response.add_header('Content-Type', 'text/html')
-        # self.response.set_body(body)
-        # print(self.request.body)
-    
     def view_post(self):
         id = int(self.request.query['id'][0])
         post = Database.find_by_id(id)

@@ -16,4 +16,5 @@ router.get('/posts', PostController, 'index')
 router.get('/posts/new', PostController, 'new')
 router.get('/post',PostController,'view_post')
 router.post('/posts', PostController, 'create')
+
 run(router, config)

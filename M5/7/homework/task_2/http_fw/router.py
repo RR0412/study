@@ -1,4 +1,5 @@
-from .errors import not_found,internal_server_error
+from http_fw.errors import not_found,internal_server_error
+
 class Router:
     def __init__(self):
         self.routes = {
