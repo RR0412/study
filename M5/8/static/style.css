@@ -1,0 +1,48 @@
+.container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    border: 1px solid black;
+}
+
+.food {
+    height: 100%;
+    background-color: green;
+}
+
+.entertainment {
+    height: 100%;
+    background-color: red;
+}
+
+.car {
+    height: 100%;
+    background-color: yellow;
+}
+
+.square_food {
+    display : inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    margin: 0 2px;
+    vertical-align: left;
+}
+
+.square_car {
+    display : inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    margin: 0 2px;
+    vertical-align: left;
+}
+
+.square_entertainment {
+    display : inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    margin: 0 2px;
+    vertical-align: left;
+}
