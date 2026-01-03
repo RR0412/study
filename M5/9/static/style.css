@@ -1,0 +1,15 @@
+.front-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+
+.image-left {
+    float: left;
+    margin-right: 15px;
+}
+
+.container {
+    overflow: hidden;
+}

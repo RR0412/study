@@ -90,9 +90,6 @@ class ExpensesController(Controller):
         </body>
         </html>
         '''
-        # food_green
-        # entertainment_red
-        # car_yellow
 
         self.response.add_header('Content-type','text/html')
         self.response.set_body(body)
