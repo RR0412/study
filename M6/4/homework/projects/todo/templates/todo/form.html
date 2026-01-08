@@ -6,14 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/form/" method="post">
+    <form action="/task/" method="post">
         {% csrf_token %}
     <label for="description">Description:</label>
     <input type="text" name="description"><br>
-    <label for="status">Status:</label>
-    <input type="text" name="status" value="new"><br>
+    <label for="status-select">Status:</label>
+    <select name="status" id="status-select">
+        <option value="new" >New</option>
+        <option value="in_progress">In progress</option>
+        <option valuse="done">Done</option>
+    </select>
     <label for="due_date">Due date:</label>
     <input type="date" id="due_date" name="due_date">
+    <input type="submit" value="Submit">
     </form>
     
 </body>
