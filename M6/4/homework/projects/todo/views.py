@@ -5,4 +5,4 @@ def index_view(request):
 
 def task_page(request):
     if request.method == 'GET':
-        
+        return render(request,'todo/form.html')
