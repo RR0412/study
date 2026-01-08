@@ -24,3 +24,8 @@ def task_page(request):
         task.save()
         return render(request,'todo/success.html')
     
+def task_list(request):
+    tasks=Task.objects.all()
+    return render(request, 'todo/task_list.html', {'tasks': tasks})
+
+    

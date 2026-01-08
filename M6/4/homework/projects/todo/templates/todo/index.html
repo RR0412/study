@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<h1>Todo page</h1>
-</body>
-</html>
+{% extends 'todo/base.html' %}
+
+{% block title %}Main{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Welcome to Todo App</h1>
+<p>You can <a href="/task/">Add new task</a> or <a href="/task_list/">see the list</a></p>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}Task list{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Task list</h2>
+
+{%if tasks %}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Due date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.description }}</td>
+            <td>{{ task.status }}</td>
+            <td>{% if task.due_date %}{{ task.due_date }}{% else %}-{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No tasks yet. <a href="/task/">Add first task</a>.</p>
+{% endif %}
+
+{% endblock %}
