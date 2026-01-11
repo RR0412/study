@@ -10,6 +10,6 @@ urlpatterns = [
     path('task/',todo_views.task_page),
     path('success/',todo_views.success_view),
     path('task_list/',todo_views.task_list),
-    path('task/<int:pk>',todo_views.task_view)
+    path('task/<int:pk>',todo_views.task_view, name='task_view'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

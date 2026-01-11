@@ -18,7 +18,7 @@
     <tbody>
         {% for task in tasks %}
         <tr>
-            <td>{{ task.description }}</td>
+            <td><a href = "{% url 'task_view' task.pk %}">{{ task.description }}</a></td>
             <td>{{ task.details }}</td>
             <td>{{ task.status }}</td>
             <td>{% if task.due_date %}{{ task.due_date }}{% else %}-{% endif %}</td>
