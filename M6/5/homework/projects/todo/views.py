@@ -31,5 +31,5 @@ def task_list(request):
 
 def task_view(request,pk):
     task = get_object_or_404(Task, pk=pk)
-    return render(request, 'task_view.html', context={'task': task})
+    return render(request, 'todo/task_view.html', context={'task': task})
 

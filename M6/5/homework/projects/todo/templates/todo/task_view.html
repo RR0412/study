@@ -1,0 +1,12 @@
+{% extends 'todo/base.html' %}
+{% block title %}{{ task.description }} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{task.description}}</h2>
+        <h2>{% if task.details %}{{ task.details }}{% else %}-{% endif %}</h2>
+        <h2>{{task.status}}</h2>
+        <h2>{% if task.due_date %}{{ task.due_date }}{% else %}-{% endif %}</h2>
+    </div>
+{% endblock %}
+
