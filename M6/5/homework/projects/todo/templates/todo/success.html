@@ -7,6 +7,6 @@
     Задача успешно добавлена!
 </div>
 
-<a href="/task/" class="btn btn-secondary">Добавить ещё задачу</a>
-<a href="/" class="btn btn-primary">На главную</a>
+<a href="{% url 'create_task' %}" class="btn btn-secondary">Добавить ещё задачу</a>
+<a href="{% url 'index' %}" class="btn btn-primary">На главную</a>
 {% endblock %}

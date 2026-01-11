@@ -11,7 +11,7 @@
     {% endfor %}
 {% endif %}
 
-<form action="/task/" method="post" class="p-4 bg-white shadow rounded">
+<form action="{% url 'create_task' %}" method="post" class="p-4 bg-white shadow rounded">
     {% csrf_token %}
 
     <div class="mb-3">

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from todo.models import Task
 from datetime import datetime
 
@@ -11,19 +11,17 @@ def success_view(request):
 def task_page(request):
     if request.method == 'GET':
         return render(request,'todo/form.html')
-    elif request.method == 'POST':
-        task = Task()       
-        task.description = request.POST.get('description')
-        task.details = request.POST.get('details')
-        task.status = request.POST.get('status')
+    elif request.method == 'POST':     
+        description = request.POST.get('description')
+        details = request.POST.get('details')
+        status = request.POST.get('status')
         due_date = request.POST.get('due_date')
         if due_date:
-            task.due_date = datetime.strptime(due_date, "%Y-%m-%d").date()
+            due_date = datetime.strptime(due_date, "%Y-%m-%d").date()
         else:
-            task.due_date = None
-        
-        task.save()
-        return render(request,'todo/success.html')
+            due_date = None
+        task = Task.objects.create(description=description, details=details, status=status, due_date=due_date )
+        return redirect('task_view', pk=task.pk)
     
 def task_list(request):
     tasks=Task.objects.all()
