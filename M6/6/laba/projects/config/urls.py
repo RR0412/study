@@ -6,10 +6,10 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('',shop_views.products_view),
-    path('products/',shop_views.products_view),
-    path('products/<int:pk>/',shop_views.product_view),
-    path('categories/add',shop_views.category_add_view),
-    path('products/add',shop_views.product_add_view)
+    path('',shop_views.index,name='index'),
+    path('products/',shop_views.products_view,name='products'),
+    path('products/<int:pk>/',shop_views.product_view,name='product'),
+    path('categories/add',shop_views.category_add_view,name='add_category'),
+    path('products/add',shop_views.product_add_view,name='add_product')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
