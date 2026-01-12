@@ -4,7 +4,7 @@ def index(request):
     return render(request, 'shop/index.html')
 
 def products_view(request):
-    return render(request, 'shop/products_view.html')
+    return render(request, 'shop/products.html')
 
 def product_add_view(request):
     return render(request, 'shop/product_add.html')
