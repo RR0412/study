@@ -13,7 +13,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Стоимость')
     image = models.URLField(max_length=300, null=True, blank=True, verbose_name='ССылка на изображение')
 
-
-
+    def __str__(self):
+        return f'{self.name} - {self.price}'
+    
 
 
