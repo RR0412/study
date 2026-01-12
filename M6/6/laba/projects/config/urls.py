@@ -7,4 +7,4 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('',shop_views.index)
-] + static(settings.MEDIA_URL, documnet_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
