@@ -1,13 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from shop.models import Category,Product
+from datetime import datetime
 
 def index(request):
     return render(request, 'shop/index.html')
 
 def products_view(request):
-    return render(request, 'shop/products.html')
+    products = Product.objects.all()
+    return render(request, 'shop/products.html', {'products': products})
+
 
 def product_add_view(request):
-    return render(request, 'shop/product_add.html')
+    if request.method == 'GET':
+        return render(request, 'shop/product_add.html')
+    # elif request.method == 'POST':
+
 
 def product_view(request):
     return render(request, 'shop/product.html')

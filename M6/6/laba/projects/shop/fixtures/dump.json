@@ -1,0 +1,82 @@
+[
+  {
+    "model": "shop.category",
+    "pk": 1,
+    "fields": {
+      "name": "Электроника",
+      "description": "Гаджеты, устройства и аксессуары"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 2,
+    "fields": {
+      "name": "Книги",
+      "description": "Художественная и образовательная литература"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 3,
+    "fields": {
+      "name": "Одежда",
+      "description": "Повседневная и спортивная одежда"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 4,
+    "fields": {
+      "name": "Дом и быт",
+      "description": "Товары для дома и уюта"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "name": "Смартфон",
+      "description": "Современный смартфон с большим экраном",
+      "category": 1,
+      "price": "299990.00",
+      "image": "https://m.media-amazon.com/images/I/61qJX973fRL._AC_SL1500_.jpg",
+      "created_at": "2026-01-13T06:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "name": "Книга по Python",
+      "description": "Учебник для начинающих программистов",
+      "category": 2,
+      "price": "4990.00",
+      "image": "https://m.media-amazon.com/images/I/71wvDBsPRSL._SL1500_.jpg",
+      "created_at": "2026-01-13T06:05:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "name": "Худи",
+      "description": "Тёплое хлопковое худи",
+      "category": 3,
+      "price": "19990.00",
+      "image": "https://www.shutterstock.com/shutterstock/photos/2627060457/display_1500/stock-photo-black-hoodie-mockup-front-and-back-views-white-background-apparel-design-2627060457.jpg",
+      "created_at": "2026-01-13T06:10:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "name": "Настольная лампа",
+      "description": "LED лампа для рабочего стола",
+      "category": 4,
+      "price": "15990.00",
+      "image": "https://www.shutterstock.com/shutterstock/photos/58942135/display_1500/stock-photo-old-fashion-table-lamp-58942135.jpg",
+      "created_at": "2026-01-13T06:15:00Z"
+    }
+  }
+]

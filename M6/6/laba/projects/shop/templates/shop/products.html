@@ -3,5 +3,14 @@
 {% block title %}Main{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Products page</h1>
+
+{% for product in products %}
+    <div class="container">
+        <img src = {{product.image}} class="image-left front-photo" alt="Product picture">
+        <p>{{product.name}}</p>
+        <p>{% if product.category %}{{ product.category }}{% else %}-{% endif %}</p>
+        <p>{{product.price}}</p>
+        <p><a href="#">See more >>> </a></p>
+    </div>
+
 {% endblock %}
