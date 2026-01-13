@@ -3,5 +3,40 @@
 {% block title %}Add product{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Product add page</h1>
+<h2 class ="mb-3">Добавить продукт </h2>
+
+<form action = "{% url 'add_product' %}" method="post" class="p-4 bg-white shadow rounded">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for = "name" class="form-label">Продукт</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+
+    <div class="mb-3">
+        <label for = "price" class="form-label">Цена</label>
+        <input type="number" class="form-control" id="price" name="price">
+    </div>
+
+    <div class="mb-3">
+        <label for = "image" class="form-label">Фото</label>
+        <input type="url" class="form-control" id="image" name="image">
+    </div>
+
+    <div class="mb-3">
+        <label for="category" class="form-label">Категория</label>
+        <select class="form-select" id="category" name="category">
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Описание категории</label>
+        <textarea id="description" name="description" class="form-control" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Добавить продукт</button>
+    
+</form>
 {% endblock %}

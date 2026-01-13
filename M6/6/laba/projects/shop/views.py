@@ -21,10 +21,24 @@ def category_add_view(request):
     
 def product_add_view(request):
     if request.method == 'GET':
-        return render(request, 'shop/product_add.html')
-
-
-
+        categories = Category.objects.all()
+        return render(request, 'shop/product_add.html',{'categories': categories})
+    elif request.method == 'POST':
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        image = request.POST.get('image') or None
+        category_id = request.POST.get('category')
+        if category_id:
+            category = Category.objects.get(pk=category_id)
+        else:
+            category = None
+        description = request.POST.get('description') or None
+        product=Product.objects.create(name=name, price=price,
+                               image=image,
+                               category=category,
+                               description=description)
+        categories = Category.objects.all()
+        return redirect('product',pk=product.pk)
 
 
 def product_view(request,pk):

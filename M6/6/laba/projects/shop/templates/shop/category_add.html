@@ -5,11 +5,6 @@
 {% block content %}
 <h2 class="mb-3">Добавить категорию</h2>
 
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-success">{{ message }}</div>
-    {% endfor %}
-{% endif %}
 
 <form action = "{% url 'add_category' %}" method="post" class="p-4 bg-white shadow rounded">
     {% csrf_token %}
@@ -19,7 +14,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="description" class="form-lable">Описание категории</label>
+        <label for="description" class="form-label">Описание категории</label>
         <textarea id="description" name="description" class="form-control" rows="4"></textarea>
     </div>
 
