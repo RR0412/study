@@ -4,6 +4,8 @@ class Category(models.Model):
     name = models.CharField(max_length=100, null = False, blank=False, verbose_name = 'Название категории')
     description = models.TextField(max_length=3000, null=True, blank=True, verbose_name = 'Описание категории')
 
+    def __str__(self):
+        return f'{self.name} - {self.description}'
 
 class Product(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, verbose_name = 'Название товара')

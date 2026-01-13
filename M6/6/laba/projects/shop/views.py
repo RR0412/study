@@ -16,8 +16,9 @@ def product_add_view(request):
     # elif request.method == 'POST':
 
 
-def product_view(request):
-    return render(request, 'shop/product.html')
+def product_view(request,pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'shop/product.html', context={'product': product})
 
 def category_add_view(request):
     return render(request, 'shop/category_add.html')

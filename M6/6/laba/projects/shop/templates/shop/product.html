@@ -1,7 +1,29 @@
-{% extends 'todo/base.html' %}
+{% extends 'shop/base.html' %}
 
-{% block title %}Product {% endblock %}
+{% block title %}{{ product.name }} {% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Product page</h1>
+<div class="container mt-4">
+    <div class="card p-3 d-flex flex-row align-items-start">
+    <img src="{{ product.image }}" class="img-thumbnail me-3" style="width: 200px; height: 200px; object-fit: cover;" alt="{{ product.name}}">
+    
+    <div>
+    <h2>{{ product.name }}</h2>
+    
+    <p class="text-muted small mb-1">
+        {% if product.category %} Category: {{ product.category }} {% else %}Category: -{% endif %}</b>
+    </p>
+    
+    <p class="fw-bold mb-1">Price : {{ product.price }}</p>
+    
+    {% if product.description %}
+        <p>Description: {{ product.description }} </p>
+    {% endif %}
+
+    <p class="text-muted small">Added : {{ product.created_at }}</p>
+
+    </div>
+    </div>
+    
+</div>
 {% endblock %}
