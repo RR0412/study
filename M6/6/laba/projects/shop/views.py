@@ -45,3 +45,29 @@ def product_view(request,pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'shop/product.html', context={'product': product})
 
+def categories_view(request):
+    categories= Category.objects.all()
+    return render(request,'shop/categories.html', {'categories': categories})
+
+
+def category_delete_view(request,pk):
+    category = get_object_or_404(Category, pk=pk)
+    if request.method == 'POST':
+        category.delete()
+        return redirect('categories')   
+    return render(request, 'shop/category_confirm_delete.html',
+                  {'category': category})
+
+def category_edit_view(request,pk):
+    category = get_object_or_404(Category, pk=pk)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        category.name = name
+        category.description = description or None
+        category.save()
+        return redirect('categories')
+    return render(request, 'shop/category_edit.html',
+                  {'category': category})
+
+
