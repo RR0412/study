@@ -1,7 +1,48 @@
 {% extends 'shop/base.html' %}
-
-{% block title %}Main{% endblock %}
+{% block title %}Main menu{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Welcome to my Shop</h1>
+<div class="container mt-5">
+<h1 class="mb-4">Главное меню</h1>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+        <div class="card h-100 text-center shadow">
+            <div class="card-body">
+            <h5 class="card-title"> Товары</h5>
+                <p class="card-text">Список всех товаров</p>
+                <a href="{% url 'products' %}" class="btn btn-primary">
+                    Перейти
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 text-center shadow">
+            <div class="card-body">
+                <h5 class="card-title">Добавить товар</h5>
+                <p class="card-text">Создание нового товара</p>
+                <a href="{% url 'add_product' %}" class="btn btn-success">
+                    Добавить
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 text-center shadow">
+            <div class="card-body">
+                <h5 class="card-title">Добавить категорию</h5>
+                <p class="card-text">Создание новой категории</p>
+                <a href="{% url 'add_category' %}" class="btn btn-warning">
+                    Добавить
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
 {% endblock %}
