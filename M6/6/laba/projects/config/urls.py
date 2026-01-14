@@ -14,5 +14,5 @@ urlpatterns = [
     path('categories/',shop_views.categories_view,name='categories'),
     path('categories/<int:pk>/delete/',shop_views.category_delete_view,name='category_delete'),
     path('categories/<int:pk>/edit/',shop_views.category_edit_view,name='category_edit'),
-    
+    path('products/<int:pk>/delete/',shop_views.product_delete_view,name='product_delete')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

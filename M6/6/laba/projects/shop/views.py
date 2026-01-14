@@ -70,4 +70,10 @@ def category_edit_view(request,pk):
     return render(request, 'shop/category_edit.html',
                   {'category': category})
 
-
+def product_delete_view(request,pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('products')
+    return render (request,'shop/product_confirm_delete.html',
+                   {'product': product})
