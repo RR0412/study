@@ -77,3 +77,24 @@ def product_delete_view(request,pk):
         return redirect('products')
     return render (request,'shop/product_confirm_delete.html',
                    {'product': product})
+
+def product_edit_view(request,pk):
+    product = get_object_or_404(Product, pk=pk)
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        image = request.POST.get('image')
+        category_id = request.POST.get('category')
+        if category_id:
+            category = Category.objects.get(pk=category_id)
+        else:
+            category = None
+        description = request.POST.get('description')
+        product = Product.objects.create(name=name,price=price,image=image,
+                                         category_id=category_id,
+                                         description=description)
+        product.save()
+        return redirect('products')
+    return render(request, 'shop/product_edit.html',{'product': product,'categories': categories})
