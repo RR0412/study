@@ -1,0 +1,8 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}Main{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Welcome to Todo App</h1>
+<p>You can <a href="{% url 'create_task' %}">Add new task</a> or <a href="{% url 'task_list' %}">see the list</a></p>
+{% endblock %}
