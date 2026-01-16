@@ -9,7 +9,7 @@ import json
 
 def products_view(request,*args,**kwargs):
     if request.method == 'GET':
-        products = Product.objects.all()
+        products = Product.objects.all().order_by('-name')
         answer_list = []
         for product in products:
             answer = {}
