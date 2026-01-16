@@ -1,3 +1,14 @@
 from django.db import models
+CATEGORY_CHOICES = [
+    ('food', 'food'),
+    ('furniture', 'furniture'),
+    ('clothes', 'clothes'),
+    ('electronics', 'electronics'),
+    ('pets', 'pets'),
+]
 
-# Create your models here.
+class Product(models.Model):
+    name = models.CharField(max_length = 100, null=False, blank=False)
+    description = models.TextField(max_length = 2000, null=True, blank=True)
+    category = models.CharField(max_length = 20,null=False, blank=False, choices = CATEGORY_CHOICES, default = 'other')
+    price = models.DecimalField(max_digits=7,decimal_places=2)
