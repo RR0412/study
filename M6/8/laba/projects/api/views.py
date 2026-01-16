@@ -19,3 +19,11 @@ def get_token_view(request,*args,**kwargs):
     if request.method == 'GET':
         return HttpResponse()
     return HttpResponseNotAllowed('Only GET requests are allowed')
+
+def product_view(request,pk,*args,**kwargs):
+    if request.method == 'GET':
+        product = [Product.objects.get(pk=pk)]
+        product_data = serializers.serialize('json', product)
+        response = HttpResponse(product_data)
+        response['Content-type'] = 'application/json'
+        return response

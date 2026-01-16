@@ -6,6 +6,7 @@
       "name": "Apple",
       "description": "Fresh red apples",
       "category": "food",
+      "quantity": 120,
       "price": "2.50"
     }
   },
@@ -16,6 +17,7 @@
       "name": "Sofa",
       "description": "Comfortable 3-seater sofa",
       "category": "furniture",
+      "quantity": 5,
       "price": "450.00"
     }
   },
@@ -26,6 +28,7 @@
       "name": "T-shirt",
       "description": "Cotton T-shirt in various sizes",
       "category": "clothes",
+      "quantity": 60,
       "price": "15.99"
     }
   },
@@ -36,6 +39,7 @@
       "name": "Laptop",
       "description": "14-inch laptop with 16GB RAM",
       "category": "electronics",
+      "quantity": 10,
       "price": "1200.00"
     }
   },
@@ -46,6 +50,7 @@
       "name": "Dog Food",
       "description": "Premium dog food 5kg bag",
       "category": "pets",
+      "quantity": 25,
       "price": "50.00"
     }
   },
@@ -56,6 +61,7 @@
       "name": "Banana",
       "description": "Fresh yellow bananas",
       "category": "food",
+      "quantity": 200,
       "price": "1.80"
     }
   },
@@ -66,6 +72,7 @@
       "name": "Dining Table",
       "description": "Wooden dining table for 6",
       "category": "furniture",
+      "quantity": 7,
       "price": "350.00"
     }
   },
@@ -76,6 +83,7 @@
       "name": "Jeans",
       "description": "Blue denim jeans",
       "category": "clothes",
+      "quantity": 40,
       "price": "40.00"
     }
   },
@@ -86,6 +94,7 @@
       "name": "Smartphone",
       "description": "Latest model smartphone",
       "category": "electronics",
+      "quantity": 15,
       "price": "900.00"
     }
   },
@@ -96,6 +105,7 @@
       "name": "Cat Toy",
       "description": "Fun toy for cats",
       "category": "pets",
+      "quantity": 80,
       "price": "12.50"
     }
   }
