@@ -8,12 +8,12 @@
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 position-rellativ">
                 <div class="posistion-absolute top-0 end-0 p-2">
-                    <i class="fa-regular fa-pen-to-square me-2 text-primary"
+                    <a href="{% url 'book_change' book.pk %}"><i class="fa-regular fa-pen-to-square me-2 text-primary"
                         style="cursor: pointer;"
-                        title="Редактировать"></i>
-                    <i class="fa-solid fa-trash text-danger" 
+                        title="Редактировать"></i></a>
+                    <a href="{% url 'book_delete' book.pk %}"><i class="fa-solid fa-trash text-danger" 
                 style="cursor: pointer;" 
-                title="Удалить"></i>
+                title="Удалить"></i></a>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title mb-1">
@@ -31,6 +31,8 @@
             </div>
         </div>
         {% endfor %}
+        <a href="{% url 'book_add' %}"><i class="fa-solid fa-plus">Добавить отзыв</i></a>
+        
 </div>
 </div>
 {% endblock %}
