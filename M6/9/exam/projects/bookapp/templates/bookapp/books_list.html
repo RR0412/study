@@ -4,6 +4,19 @@
 {% block content %}
 <div class = "container mt-4">
     <div class="row">
+        <form action="/search/" method="get">
+    <label for="name">Поиск по имени:</label>
+    <input type="text" id="name" name="name" list="user_names">
+
+    <datalist id="user_names">
+        {% for book in books %}
+            <option value="{{ book.name }}">
+        {% endfor %}
+    </datalist>
+
+    <button type="submit">Найти</button>
+</form>
+
         {% for book in books %}
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 position-rellativ">

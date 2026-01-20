@@ -22,7 +22,7 @@ def task_page(request):
             due_date = None
         task = Task.objects.create(description=description, details=details, status=status, due_date=due_date )
         return redirect('task_view', pk=task.pk)
-    
+
 def task_list(request):
     tasks=Task.objects.all()
     return render(request, 'todo/task_list.html', {'tasks': tasks})

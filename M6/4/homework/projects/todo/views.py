@@ -14,6 +14,7 @@ def task_page(request):
     elif request.method == 'POST':
         task = Task()       
         task.description = request.POST.get('description')
+        task.details = request.POST.get('details')
         task.status = request.POST.get('status')
         due_date = request.POST.get('due_date')
         if due_date:
@@ -28,4 +29,5 @@ def task_list(request):
     tasks=Task.objects.all()
     return render(request, 'todo/task_list.html', {'tasks': tasks})
 
+def task(request,id):
     

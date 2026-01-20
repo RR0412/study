@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block tite %}Create Article{% endblock %}
+{% block content %}
+    <h1>Create Article</h1>
+    <form method="POST" action="{% url 'article_add' %}">
+        {% csrf_token %}
+        <p><label>Title</label> <input type="text" name="title"></p>
+        <p><label>Author</label> <input type="text" name="author"></p>
+
+        <label for="StatusSelect">Status:</label><br/>
+        <select name="status" id="StatusSelect">
+            {% for choice in status_choices %}
+                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+            {% endfor %}
+        </select>
+
+        <p><label>Text</label> <textarea  name="text"></textarea></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+{% endblock %}
