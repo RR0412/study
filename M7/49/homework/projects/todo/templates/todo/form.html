@@ -1,0 +1,45 @@
+{% extends 'todo/base.html' %}
+
+{% block title %}Добавить задачу {% endblock %}
+
+{% block content %}
+<h2 class="mb-3">Новая задача</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<form action="{% url 'create_task' %}" method="post" class="p-4 bg-white shadow rounded">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Описание</label>
+        <input type="text" class="form-control" id="description" name="description"
+        placeholder="What to do?" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="details" class="form-label">Детали</label>
+        <input type="text" class="form-control" id="details" name="details">
+    </div>
+
+    <div class="mb-3">
+        <label for="status" class="form-label">Статус</label>
+        <select class="form-select" id="status" name="status">
+            <option value="new" selected>Новая</option>
+            <option value="in_progress"> в процессе</option>
+            <option value="done">Выполнена</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="due_date" class="form-label">Срок (не обязательно)</label>
+        <input type="date" class="form-cotrol" id="due_date" name="due_date">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+
+</form>
+{% endblock %}
