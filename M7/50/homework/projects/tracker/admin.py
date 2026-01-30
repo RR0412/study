@@ -1,3 +1,6 @@
 from django.contrib import admin
+from tracker.models import Task,Status,Type
 
-# Register your models here.
+admin.site.register(Task)
+admin.site.register(Status)
+admin.site.register(Type)
