@@ -14,15 +14,11 @@ class TaskListCreateView(APIView):
     
     def post(self,request):
         serializer = TaskSerializer(data=request.data)
-        if serializer.is_valid():
-            task = Task.objects.create(
-                title=serializer.validated_data['title'],
-                description=serializer.validated_data['description'],
-                status=serializer.validated_data['status'],
-                type=serializer.validated_data['type']
-            )
-            return Response(TaskSerializer(task).data,
-                            status=status.HTTP_201_CREATED)
+        serializer.is_valid(raise_exception=True)
+        task = serializer.save()
+        response_data = TaskSerializer(task).data
+        return Response(response_data,
+                        status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class TaskReadUpdateDeleteView(APIView):
