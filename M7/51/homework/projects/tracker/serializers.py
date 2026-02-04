@@ -13,11 +13,23 @@ from tracker.models import Type
 #     updated_at = serializers.DateTimeField(read_only=True)
 
 
+class StatusNestedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Status
+        fields = ('id', ' name')
 
+
+class TypeNestedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Type
+        field = ('id', 'name')
 
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
+        status = StatusNestedSerializer()
+        type = TypeNestedSerializer()
         model = Task
         fields = ('id', 'title', 'description', 'status', 'type', 'created_at', 'updated_at')
-        read_only_feilds = ('id', 'created_at', 'updated_at')
-        
+        read_only_fields = ('id', 'created_at', 'updated_at')
+
+

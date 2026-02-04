@@ -25,17 +25,15 @@ class TaskReadUpdateDeleteView(APIView):
     def dispatch(self,request,*args,**kwargs):
         self.task=get_object_or_404(Task, id=kwargs.get('pk'))
         return super().dispatch(request, *args, **kwargs)
-
-    def get_task_response(self):
-        serializer = TaskSerializer(instance=self.task)
-        return Response(serializer.data)
     
     def get(self, request, *args, **kwargs):
-        return self.get_task_response()
+        serializer = TaskSerializer(self.task)
+        return Response(serializer.data)
     
     def patch(self, request, *args, **kwargs):
-        for key,value in request.data.items():
-            setattr(self.task, key, value)
+        serializer = TaskSerializer(self.task)
+        serializer.update(self.article, request.data)
+
 
         self.task.save()
         return self.get_task_response()
