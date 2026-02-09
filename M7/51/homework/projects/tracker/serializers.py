@@ -3,33 +3,36 @@ from tracker.models import Task
 from tracker.models import Status
 from tracker.models import Type
 
-# class TaskSerializer(serializers.Serializer):
-#     id = serializers.IntegerField(read_only=True)
-#     title = serializers.CharField(max_length=255)
-#     description = serializers.CharField(allow_blank=True)
-#     status = serializers.PrimaryKeyRelatedField(queryset=Status.objects.all())
-#     type = serializers.PrimaryKeyRelatedField(queryset=Type.objects.all())
-#     created_at = serializers.DateTimeField(read_only=True)
-#     updated_at = serializers.DateTimeField(read_only=True)
-
 
 class StatusNestedSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
-        fields = ('id', ' name')
+        fields = ('id', 'name')
 
 
 class TypeNestedSerializer(serializers.ModelSerializer):
     class Meta:
         model = Type
-        field = ('id', 'name')
+        fields = ('id', 'name')
 
-class TaskSerializer(serializers.ModelSerializer):
+class TaskReadSerializer(serializers.ModelSerializer):
+    status = StatusNestedSerializer(read_only=True)
+    type = TypeNestedSerializer(read_only=True)
+
     class Meta:
-        status = StatusNestedSerializer()
-        type = TypeNestedSerializer()
         model = Task
         fields = ('id', 'title', 'description', 'status', 'type', 'created_at', 'updated_at')
         read_only_fields = ('id', 'created_at', 'updated_at')
+
+
+class TaskSerializer(serializers.ModelSerializer):
+    status = serializers.PrimaryKeyRelatedField(queryset=Status.objects.all())
+    type = serializers.PrimaryKeyRelatedField(queryset=Type.objects.all())
+
+    class Meta:
+        model = Task
+        fields = ('id', 'title', 'description', 'status', 'type', 'created_at', 'updated_at')
+        read_only_fields = ('id', 'created_at', 'updated_at')
+
 
 

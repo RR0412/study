@@ -8,7 +8,7 @@ from book.serializers import BookSerializer
 
 class BookListCreateView(APIView):
     def get(self,request):
-        books = Book.objects.all()
+        books = Book.objects.all().order_by('title')
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
     
@@ -25,6 +25,7 @@ class BookReadUpdateDeleteView(APIView):
     
     def get(self, request, *args, **kwargs):
         serializer = BookSerializer(self.book)
+        serializer.update(self.book, request.data)
         return Response(serializer.data)
     
     def patch(self, request, *args, **kwargs):
