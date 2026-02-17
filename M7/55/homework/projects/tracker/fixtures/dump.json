@@ -1,0 +1,116 @@
+[
+{
+  "model": "tracker.status",
+  "pk": 1,
+  "fields": {
+    "name": "New"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 2,
+  "fields": {
+    "name": "In Progress"
+  }
+},
+{
+  "model": "tracker.status",
+  "pk": 3,
+  "fields": {
+    "name": "Done"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "tracker.type",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 1,
+  "fields": {
+    "title": "Migrations",
+    "description": "Make migrations",
+    "status": 1,
+    "types": [1],
+    "created_at": "2026-01-30T06:45:18.322Z",
+    "updated_at": "2026-01-30T06:45:18.322Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 2,
+  "fields": {
+    "title": "Models",
+    "description": "Add models and register them",
+    "status": 1,
+    "types": [1],
+    "created_at": "2026-01-30T06:45:42.909Z",
+    "updated_at": "2026-01-30T06:45:42.909Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 3,
+  "fields": {
+    "title": "Fixtures",
+    "description": "Create Fixtures",
+    "status": 1,
+    "types": [1],
+    "created_at": "2026-01-30T06:46:07.758Z",
+    "updated_at": "2026-01-30T06:46:07.758Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 4,
+  "fields": {
+    "title": "CRUD",
+    "description": "Make a CRUD for the project",
+    "status": 1,
+    "types": [1],
+    "created_at": "2026-01-30T06:46:35.153Z",
+    "updated_at": "2026-01-30T06:46:35.153Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 5,
+  "fields": {
+    "title": "GIT",
+    "description": "Make git commits",
+    "status": 1,
+    "types": [1],
+    "created_at": "2026-01-30T06:47:15.328Z",
+    "updated_at": "2026-01-30T06:47:15.328Z"
+  }
+},
+{
+  "model": "tracker.task",
+  "pk": 6,
+  "fields": {
+    "title": "URL",
+    "description": "Register URLs",
+    "status": 2,
+    "types": [3],
+    "created_at": "2026-01-30T06:47:38.679Z",
+    "updated_at": "2026-01-30T06:47:38.679Z"
+  }
+}
+]
